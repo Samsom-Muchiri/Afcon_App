@@ -58,7 +58,9 @@ function Nav() {
           </div>
         </div>
       </nav>
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </div>
   );
 }
