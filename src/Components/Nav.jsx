@@ -6,7 +6,7 @@ function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const MobileNavStyle = {
     fontVariationSettings: '"FILL" 0, "wght" 200, "GRAD" -25, "opsz" 24"',
-    fontSize: "30px",
+    fontSize: "30px", 
   };
 
   /* _____Menu operations */
@@ -32,7 +32,7 @@ function Nav() {
   }, []);
 
   return (
-    <div>
+    <div className="">
       <nav>
         <div className="top_header">
           <h1 className="name-logo">AFCON</h1>
@@ -72,7 +72,7 @@ function Nav() {
                     <hr />
                   </li>
                   <li>
-                    <Link to="/">Qualifiers</Link>
+                    <Link to="/qualifiers">Qualifiers</Link>
                     <hr />
                   </li>
                   <li>
@@ -105,7 +105,7 @@ function Nav() {
           </div>
 
           <div className="profile">
-            <span class="material-symbols-outlined">person</span>
+            <span className="material-symbols-outlined">person</span>
           </div>
         </div>
 
@@ -114,7 +114,7 @@ function Nav() {
           <ul>
             <NavLink to="/">
               <li>
-                <span class="material-symbols-outlined" style={MobileNavStyle}>
+                <span className="material-symbols-outlined" style={MobileNavStyle}>
                   home
                 </span>{" "}
                 Home
@@ -123,7 +123,7 @@ function Nav() {
             <NavLink to="/">
               {" "}
               <li>
-                <span class="material-symbols-outlined" style={MobileNavStyle}>
+                <span className="material-symbols-outlined" style={MobileNavStyle}>
                   brightness_high
                 </span>{" "}
                 Highlights
@@ -131,7 +131,7 @@ function Nav() {
             </NavLink>
             <NavLink to="/">
               <li>
-                <span class="material-symbols-outlined" style={MobileNavStyle}>
+                <span className="material-symbols-outlined" style={MobileNavStyle}>
                   sports_score
                 </span>{" "}
                 Scores
@@ -139,7 +139,7 @@ function Nav() {
             </NavLink>
 
             <li onClick={openMenu}>
-              <span class="material-symbols-outlined" style={MobileNavStyle}>
+              <span className="material-symbols-outlined" style={MobileNavStyle}>
                 menu
               </span>{" "}
               Menu
@@ -147,9 +147,9 @@ function Nav() {
           </ul>
         </div>
       </nav>
-      <main>
+      <main className="lg:mt-[1.82rem] mt-[1.14rem]">
         <Outlet />
-      </main>
+      </main> 
     </div>
   );
 }
