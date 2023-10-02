@@ -1,9 +1,15 @@
 import React from "react";
+import "../Style Sheets/homePage.css";
+import CitiesSlider from "./slider";
+import Dates from "./home page components/Dates";
+import WhatsNew from "./home page components/WhatsNew";
 
 function Home() {
   return (
-    <div>
-      <h1>Home</h1>
+    <div className="slider-section">
+      <CitiesSlider />
+      <Dates />
+      <WhatsNew />
     </div>
   );
 }

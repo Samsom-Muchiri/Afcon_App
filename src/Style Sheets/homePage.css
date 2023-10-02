@@ -1,0 +1,77 @@
+.afcon-date {
+  font-family: fantasy;
+  text-align: center;
+  font-size: 50px;
+  background-image: url("https://i.pinimg.com/236x/74/28/27/74282754cc40e498d4c6721f4af396b7.jpg");
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0.315);
+  padding: 50px 0;
+}
+.afcon-date h1 {
+  margin: 0%;
+}
+.black-card {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 15vh 0;
+  font-size: 30px;
+  font-family: "Courier New", Courier, monospace;
+}
+.news-sec {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 20px;
+}
+.news-header {
+  padding: 30px;
+  font-family: fantasy;
+}
+
+.news-big {
+  padding: 0 20px;
+  max-width: 800px;
+  width: 70vw;
+  border-radius: 20px;
+  float: left;
+}
+.news-big h4,
+p {
+  width: 80%;
+}
+.news-big img {
+  width: 100%;
+  border-radius: 20px;
+  object-fit: contain;
+}
+.news-small-grid {
+  display: flex;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 20px;
+}
+.small-news {
+  width: 300px;
+  overflow: hidden;
+}
+.img-container {
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.small-news img {
+  width: 300px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  transition: 0.5s;
+}
+.small-news:hover img {
+  width: 320px;
+  height: 220px;
+}

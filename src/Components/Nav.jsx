@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import Footer from "./Footer.jsx";
 import "../Style Sheets/nav.css";
 
 function Nav() {
@@ -13,7 +14,6 @@ function Nav() {
   const openMenu = (e) => {
     e.stopPropagation();
     setMenuOpen(true);
-    console.log("dfbb");
   };
 
   useEffect(() => {
@@ -32,7 +32,7 @@ function Nav() {
   }, []);
 
   return (
-    <div>
+    <>
       <nav>
         <div className="top_header">
           <h1 className="name-logo">AFCON</h1>
@@ -150,7 +150,9 @@ function Nav() {
       <main>
         <Outlet />
       </main>
-    </div>
+
+      <Footer />
+    </>
   );
 }
 
