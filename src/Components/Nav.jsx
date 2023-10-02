@@ -150,7 +150,6 @@ function Nav() {
       <main>
         <Outlet />
       </main>
-
       <Footer />
     </>
   );
