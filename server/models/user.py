@@ -1,0 +1,28 @@
+from flask_bcrypt import generate_password_hash, check_password_hash
+from sqlalchemy_serializer import SerializerMixin
+from flask_login import UserMixin
+from .dbconfig import db
+
+class User(db.Model, SerializerMixin, UserMixin):
+    __tablename__ = 'users'
+    serialize_rules = ('-password',)  # never serialize the password
+    
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(150), nullable=False, unique=True)
+    password = db.Column(db.String(128), nullable=False)
+    country = db.Column(db.String(100), nullable=False)
+    profile_picture = db.Column(db.String(500))  # Path or URL to user's profile picture
+    created_at = db.Column(db.DateTime, server_default=db.func.now())
+    last_login = db.Column(db.DateTime)
+    # role = db.Column(db.String(50)) # if you want user roles
+    
+    # Password hashing functions
+    def set_password(self, password):
+        self.password = generate_password_hash(password).decode('utf-8')
+    
+    def check_password(self, password):
+        return check_password_hash(self.password, password)
+    
+    def __repr__(self):
+        return f'User({self.name}, {self.email})'
