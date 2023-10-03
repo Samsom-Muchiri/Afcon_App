@@ -117,15 +117,9 @@ const Qualifiers = () => {
         </section>
 
         </div>
-
-        
-
       </div>
     </div>
   );
 };
-
-
-
 
 export default Qualifiers;

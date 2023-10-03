@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+// import React, { useEffect, useState } from "react";
+// import { Link, NavLink, Outlet } from "react-router-dom";
+import Footer from "./Footer.jsx";
 import "../Style Sheets/nav.css";
 
 function Nav() {
@@ -7,14 +10,13 @@ function Nav() {
   const {pathname}=useLocation()
   const MobileNavStyle = {
     fontVariationSettings: '"FILL" 0, "wght" 200, "GRAD" -25, "opsz" 24"',
-    fontSize: "30px", 
+    fontSize: "30px",
   };
 
   /* _____Menu operations */
   const openMenu = (e) => {
     e.stopPropagation();
     setMenuOpen(true);
-    console.log("dfbb");
   };
 
   useEffect(() => {
@@ -41,7 +43,7 @@ function Nav() {
           <div className="important-link">
             <ul className="fxsb">
               <li>
-                <Link to="/">Buy Ticket</Link>
+                <Link to="/buy_ticket">Buy Ticket</Link>
               </li>
               <li>
                 <Link to="/">AFCON store</Link>
@@ -73,7 +75,7 @@ function Nav() {
                     <hr />
                   </li>
                   <li>
-                    <Link to="/qualifiers">Qualifiers</Link>
+                    <Link to="/">Qualifiers</Link>
                     <hr />
                   </li>
                   <li>
@@ -91,7 +93,7 @@ function Nav() {
                 <div className="important-link mobile ">
                   <ul className="fxsb">
                     <li>
-                      <Link to="/">Buy Ticket</Link>
+                      <Link to="/buy_ticket">Buy Ticket</Link>
                     </li>
                     <li>
                       <Link to="/">AFCON store</Link>
@@ -150,7 +152,8 @@ function Nav() {
       </nav>
       <main className={` ${pathname=='/signin'|| pathname=='/signup'?'mt-0 pt-0':'lg:mt-[1.82rem] mt-[1.14rem]'}`}>
         <Outlet />
-      </main> 
+      </main>
+      <Footer />
     </div>
   );
 }
