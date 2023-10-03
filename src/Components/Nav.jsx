@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import "../Style Sheets/nav.css";
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const {pathname}=useLocation()
   const MobileNavStyle = {
     fontVariationSettings: '"FILL" 0, "wght" 200, "GRAD" -25, "opsz" 24"',
     fontSize: "30px", 
@@ -33,7 +34,7 @@ function Nav() {
 
   return (
     <div className="">
-      <nav>
+      <nav className={`${pathname=='/signin'|| pathname=='/signup'?'hidden':''}`}>
         <div className="top_header">
           <h1 className="name-logo">AFCON</h1>
           {/* _____________________Important desk links */}
@@ -147,7 +148,7 @@ function Nav() {
           </ul>
         </div>
       </nav>
-      <main className="lg:mt-[1.82rem] mt-[1.14rem]">
+      <main className={` ${pathname=='/signin'|| pathname=='/signup'?'mt-0 pt-0':'lg:mt-[1.82rem] mt-[1.14rem]'}`}>
         <Outlet />
       </main> 
     </div>
