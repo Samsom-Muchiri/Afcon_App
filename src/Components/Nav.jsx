@@ -40,7 +40,7 @@ function Nav() {
           <div className="important-link">
             <ul className="fxsb">
               <li>
-                <Link to="/">Buy Ticket</Link>
+                <Link to="/buy_ticket">Buy Ticket</Link>
               </li>
               <li>
                 <Link to="/">AFCON store</Link>
@@ -90,7 +90,7 @@ function Nav() {
                 <div className="important-link mobile ">
                   <ul className="fxsb">
                     <li>
-                      <Link to="/">Buy Ticket</Link>
+                      <Link to="/buy_ticket">Buy Ticket</Link>
                     </li>
                     <li>
                       <Link to="/">AFCON store</Link>

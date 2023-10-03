@@ -12,24 +12,28 @@ body {
 .fxc {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Flex dox start */
 .fxs {
   display: flex;
   justify-content: start;
+  flex-wrap: wrap;
 }
 
 /* Flex box end */
 .fxe {
   display: flex;
   justify-content: end;
+  flex-wrap: wrap;
 }
- 
+
 /* Flex box space between */
 .fxsb {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 /* Google icons */

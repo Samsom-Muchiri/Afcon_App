@@ -1,6 +1,9 @@
 :root {
   --primary-color: black;
 }
+.sec-header {
+  margin-left: 30px;
+}
 .afcon-date {
   font-family: fantasy;
   text-align: center;
@@ -109,7 +112,7 @@ p {
 .scroll-btn {
   width: 50px;
   height: 50px;
-  background-color: rgba(255, 255, 255, 0.441);
+  background-color: rgb(255, 255, 255);
   display: grid;
   place-items: center;
   position: absolute;
@@ -118,15 +121,14 @@ p {
   cursor: pointer;
   z-index: 2;
   transition: 0.2s;
+  mix-blend-mode: difference;
 }
-.scroll-btn:hover {
-  background-color: rgba(255, 255, 255, 0.769);
-}
+
 .scroll-l {
-  left: 5%;
+  left: 3%;
 }
 .scroll-r {
-  right: 5%;
+  right: 3%;
 }
 .fq-sl-container {
   display: flex;
@@ -153,4 +155,48 @@ p {
   color: black;
   background-color: white;
   border: solid 1px black;
+}
+/* ____________tournament slide */
+
+.tournament-slider {
+  overflow-x: scroll;
+  margin: 20px 0;
+  height: fit-content;
+}
+.tournament-slider::-webkit-scrollbar {
+  display: none;
+}
+.tournament-card {
+  width: 250px;
+  height: 35vh;
+  margin: 5px 10px;
+}
+.tournament-card img {
+  width: 250px;
+  height: 80%;
+  border-radius: 20px;
+}
+
+/* ______________hash tags */
+
+.hash-tags {
+  background-color: var(--primary-color);
+  padding: 20px 0;
+}
+.hash-tags h1 {
+  color: white;
+}
+.hash-card {
+  width: 300px;
+  border: solid 1px rgba(128, 128, 128, 0.744);
+  border-radius: 20px;
+  margin: 10px;
+  background-color: white;
+  overflow: hidden;
+}
+.hash-card p {
+  padding-left: 10px;
+}
+.hash-card img {
+  width: 100%;
 }

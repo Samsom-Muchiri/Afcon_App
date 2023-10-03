@@ -39,7 +39,7 @@ function Fqas() {
   ];
   return (
     <div className="scroll-container">
-      <h1>FQAS</h1>
+      <h1 className="sec-header"> FQAS</h1>
       <div
         className="scroll-btn scroll-l"
         onClick={() => moveSlider(sliderRef, 1)}

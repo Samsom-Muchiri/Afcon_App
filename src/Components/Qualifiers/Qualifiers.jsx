@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import MatchCard from "./reusables/MatchCard";
-//import styled from "styled-components";
+import styled from "styled-components";
 
 const Qualifiers = () => {
   const [scrollLeft, setScrollLeft] = useState(0);
@@ -157,7 +157,7 @@ const Qualifiers = () => {
     </div>
   );
 };
-`const Section = styled.section
+const Section = styled.section`
   // background-color:red;
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
