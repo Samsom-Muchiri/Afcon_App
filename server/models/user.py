@@ -11,7 +11,7 @@ class User(db.Model, SerializerMixin, UserMixin):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)
     password = db.Column(db.String(128), nullable=False)
-    # country = db.Column(db.String(100), nullable=False)
+    country = db.Column(db.String(100), nullable=True)
     # profile_picture = db.Column(db.String(500))  # Path or URL to user's profile picture
     created_at = db.Column(db.DateTime, server_default=db.func.now())
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())

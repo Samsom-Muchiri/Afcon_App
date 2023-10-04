@@ -5,10 +5,28 @@ from models.country import Country
 from models.player import Player
 from models.comment import Comment
 from datetime import datetime
+from app import app
 
 
-def create_sample_data():
+with app.app_context():
+    
+    print('Deleting existing group stages...')
+    GroupStage.query.delete()
+    
+    print('Deleting existing users...')
+    User.query.delete()
+    
+    print('Deleting existing countries...')
+    Country.query.delete()
+    
+    print('Deleting existing player...')
+    Player.query.delete()
+    
+    print('Deleting existing comments...')
+    Comment.query.delete()
+
     # Create sample data for the User model
+    print('Creating user objects...')
     user1 = User(name='nate wamzy', email='nate@example.com')
     user1.set_password('password1')
 
@@ -16,6 +34,7 @@ def create_sample_data():
     user2.set_password('password2')
 
     # Create sample data for the GroupStage model
+    print('Creating group_stage objects...')
     group_stage1 = GroupStage(name='Group A')
     group_stage2 = GroupStage(name='Group B')
 

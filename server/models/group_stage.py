@@ -9,7 +9,7 @@ class GroupStage(db.Model, SerializerMixin):
     name = db.Column(db.String(50), nullable=False, unique=True)
     
     # Relationships
-    countries = db.relationship('Country', backref='group_stage', lazy='dynamic')
+    countries = db.relationship('Country', backref='group_stages', lazy='dynamic')
     
     def __repr__(self):
         return f'GroupStage({self.name})'
