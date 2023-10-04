@@ -43,8 +43,8 @@ def register():
     email = data.get('email')
     password = data.get('password')
     name = data.get('name')
-    country = data.get('country')
-    profile_picture = data.get('profile_picture')  # Or set a default
+    # country = data.get('country')
+    # profile_picture = data.get('profile_picture')  # Or set a default
     
     # Check if user exists
     existing_user = User.query.filter_by(email=email).first()
@@ -54,8 +54,8 @@ def register():
     new_user = User(
         email=email,
         name=name,
-        country=country,
-        profile_picture=profile_picture
+        # country=country,
+        # profile_picture=profile_picture
     )
     new_user.set_password(password)
     db.session.add(new_user)
@@ -71,6 +71,6 @@ def profile():
     return jsonify({
         "name": current_user.name,
         "email": current_user.email,
-        "country": current_user.country
+        # "country": current_user.country
     })
     
