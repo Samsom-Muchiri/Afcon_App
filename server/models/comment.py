@@ -4,7 +4,7 @@ from datetime import datetime
 from models.user import User
 
 class Comment(db.Model, SerializerMixin):
-    tablename = 'comments'
+    __tablename__ = 'comments'
     serialize_rules = ('-user.password',)  # Avoid serializing sensitive user data when fetching a comment
 
     id = db.Column(db.Integer, primary_key=True)
@@ -15,5 +15,5 @@ class Comment(db.Model, SerializerMixin):
     # Relationship
     user = db.relationship('User', backref=db.backref('comments', lazy=True))
 
-    def repr(self):
+    def __repr__(self):
         return f'Comment({self.id}, User: {self.user_id}, Date: {self.created_at})'

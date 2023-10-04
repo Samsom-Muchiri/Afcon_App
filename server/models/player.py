@@ -3,7 +3,7 @@ from .dbconfig import db
 from sqlalchemy.orm import relationship
 
 class Player(db.Model, SerializerMixin):
-    tablename = 'players'
+    __tablename__ = 'players'
     serialize_rules = ('-country.players',)  # Avoid serializing all players when fetching a player.
 
     id = db.Column(db.Integer, primary_key=True)
@@ -13,7 +13,7 @@ class Player(db.Model, SerializerMixin):
     country_id = db.Column(db.Integer, db.ForeignKey('countries.id'), nullable=False)
 
     # Relationship
-    country = relationship('Country', backref='players')
+    country = relationship('Country', backref='players', primaryjoin='Player.country_id == Country.id')
 
-    def repr(self):
+    def __repr__(self):
         return f'Player({self.name}, Country: {self.country_id})'
