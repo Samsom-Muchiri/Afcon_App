@@ -7,7 +7,8 @@
 ``pip install Flask-Migrate``
 ``pip install Flask``
 ``pip install Flask-RESTful Api``
-``pip install Flask-Login Flask-Bcrypt``
+``pip install Flask-Login`` 
+``pip install Flask-Bcrypt``
 
 
 
