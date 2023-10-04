@@ -9,7 +9,7 @@ function Footer() {
           src="https://cdn1.vectorstock.com/i/1000x1000/06/30/fifa-official-logo-white-symbol-design-vector-44760630.jpg"
           alt="fifa"
         />
-        <div>
+        <div className="fxc">
           <img
             src="https://www.freepnglogos.com/uploads/play-store-logo-png/play-store-logo-nisi-filters-australia-11.png"
             alt="google play store"
@@ -21,7 +21,7 @@ function Footer() {
         </div>
       </div>
       <h5>Sponsers</h5>
-      <div className="sponsors">
+      <div className="sponsors fxc">
         <img
           src="https://blogger.googleusercontent.com/img/a/AVvXsEgu9Ewbgh4ej2z3gB_cQ8Ajf3Vvh2qzNvxMYBOkC70IdBK5Xt3drFjDz1j67Q3rhhBrx9WaASxDhdlzLGMETxTsoGFE9i4aBOJQq-I1Jn9DWREVc4-7fEJepgcWsFl4hRv-TPIsewP9rmMcjEEFB3THpj1w8wb5HqcOyl0s7e0dXEOrb34pxuVaxkP-OQ=s600"
           alt=""
