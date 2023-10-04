@@ -1,4 +1,4 @@
-from flask import Flask, Blueprint, jsonify, request, redirect, url_for, g
+from flask import Flask, Blueprint, jsonify, request, redirect, g
 from flask_login import login_manager, LoginManager, login_user, logout_user, login_required, current_user
 from models import User, db
 from flask_bcrypt import check_password_hash

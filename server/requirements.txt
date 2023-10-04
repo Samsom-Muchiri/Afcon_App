@@ -1,7 +1,11 @@
-flask
-sqlalchemy
-flask-cors
-serializer
-Flask-Migrate
-Flask-RESTful
+
+
+ Flask-WTF = '*'
+ Flask-Cors = '*'
+ Flask-Serializer = '*'
+ Flask-SQLAlchemy = '*'
+ Flask-Migrate = '*'
+ Flask = '*' 
+ Flask-RESTful Api = '*'
+ Flask-Login Flask-Bcrypt = '*'
 
