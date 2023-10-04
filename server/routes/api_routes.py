@@ -1,6 +1,9 @@
-from flask import Flask, jsonify, abort, g, Blueprint
-from models import User, GroupStage, Country, Player, Review, Comment, City
-from models.dbconfig import db
+from flask import jsonify, Blueprint
+from models.user import User
+from models.group_stage import GroupStage
+from models.country import Country
+from models.player import Player
+from models.comment import Comment
 # from flask_cors import CORS
 # import os
 
@@ -53,10 +56,10 @@ def get_player(id):
 #     reviews = Review.query.all()
 #     return jsonify([review.to_dict() for review in reviews])
 
-@api_bp.route('/reviews/<int:id>', methods=['GET'])
-def get_review(id):
-    review = Review.query.get_or_404(id)
-    return jsonify(review.to_dict())
+# @api_bp.route('/reviews/<int:id>', methods=['GET'])
+# def get_review(id):
+#     review = Review.query.get_or_404(id)
+#     return jsonify(review.to_dict())
 
 @api_bp.route('/reviews', methods=['POST'])
 def post_review():
@@ -88,12 +91,12 @@ def delete_comment(id):
     # Implement the comment deletion logic here
     pass
 
-@api_bp.route('/cities', methods=['GET'])
-def get_cities():
-    cities = City.query.all()
-    return jsonify([city.to_dict() for city in cities])
+# @api_bp.route('/cities', methods=['GET'])
+# def get_cities():
+#     cities = City.query.all()
+#     return jsonify([city.to_dict() for city in cities])
 
-@api_bp.route('/cities/<int:id>', methods=['GET'])
-def get_city(id):
-    city = City.query.get_or_404(id)
-    return jsonify(city.to_dict())
+# @api_bp.route('/cities/<int:id>', methods=['GET'])
+# def get_city(id):
+#     city = City.query.get_or_404(id)
+#     return jsonify(city.to_dict())
