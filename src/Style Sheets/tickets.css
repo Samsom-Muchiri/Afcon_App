@@ -15,6 +15,12 @@
 }
 /* ___________Packages */
 
+.cnt-p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .packages {
   padding: 5vh;
 }
@@ -30,7 +36,7 @@ p {
   width: 300px;
   border-radius: 20px;
   background-color: rgb(67, 21, 109);
-  margin: 10px 0;
+  margin: 10px;
   position: relative;
 }
 .p-l {
@@ -63,4 +69,37 @@ p {
   border-radius: 50%;
   display: grid;
   place-items: center;
+}
+.ticket-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 90%;
+  margin: 10px auto;
+  border-radius: 10px;
+  background-color: rgb(226, 234, 242);
+  cursor: pointer;
+  transition: 0.3s;
+}
+.ticket-row:hover {
+  background-color: rgb(204, 213, 221);
+}
+.t-vs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+.t-vs img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+.t-buy-btn button {
+  border: solid 2px black;
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
 }
