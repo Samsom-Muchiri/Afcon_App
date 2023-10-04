@@ -48,10 +48,10 @@ def get_player(id):
     player = Player.query.get_or_404(id)
     return jsonify(player.to_dict())
 
-@api_bp.route('/reviews', methods=['GET'])
-def get_reviews():
-    reviews = Review.query.all()
-    return jsonify([review.to_dict() for review in reviews])
+# @api_bp.route('/reviews', methods=['GET'])
+# def get_reviews():
+#     reviews = Review.query.all()
+#     return jsonify([review.to_dict() for review in reviews])
 
 @api_bp.route('/reviews/<int:id>', methods=['GET'])
 def get_review(id):
@@ -63,10 +63,10 @@ def post_review():
     # Implement the review posting logic here
     pass
 
-@api_bp.route('/reviews/<int:id>', methods=['DELETE'])
-def delete_review(id):
-    # Implement the review deletion logic here
-    pass
+# @api_bp.route('/reviews/<int:id>', methods=['DELETE'])
+# def delete_review(id):
+#     # Implement the review deletion logic here
+#     pass
 
 @api_bp.route('/comments', methods=['GET'])
 def get_comments():
