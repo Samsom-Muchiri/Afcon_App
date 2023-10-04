@@ -1,6 +1,8 @@
-from flask import Flask, Blueprint, jsonify, request, redirect, g
+from flask import Flask, Blueprint, jsonify, request, g
 from flask_login import login_manager, LoginManager, login_user, logout_user, login_required, current_user
-from models import User, db
+from models.user import User
+from models.dbconfig import db
+from flask import current_app as app
 from flask_bcrypt import check_password_hash
 # from flask_cors import CORS
 import os
@@ -9,10 +11,10 @@ import os
 
 auth_bp = Blueprint('auth_bp', __name__)
 
-# loads the user object 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+# # loads the user object 
+# @app.login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(int(user_id))
 
 # Route to log in a user. 
 @auth_bp.route('/login', methods=['POST'])
