@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
-// import React, { useEffect, useState } from "react";
-// import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "./Footer.jsx";
 import "../Style Sheets/nav.css";
 
@@ -75,7 +73,11 @@ function Nav() {
                     <hr />
                   </li>
                   <li>
-                    <Link to="/">Qualifiers</Link>
+                    <Link to="/qualifiers">Qualifiers</Link>
+                    <hr />
+                  </li>
+                  <li>
+                    <Link to="/qualifiers">Comments</Link>
                     <hr />
                   </li>
                   <li>

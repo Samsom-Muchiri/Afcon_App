@@ -1,4 +1,3 @@
-import React from "react";
 import "../Style Sheets/homePage.css";
 import CitiesSlider from "./slider";
 import Dates from "./home page components/Dates";

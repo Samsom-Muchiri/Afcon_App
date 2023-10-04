@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import classNames from "classnames";
 import "../Style Sheets/slider-st.css"; // Replace with your actual CSS file name
 

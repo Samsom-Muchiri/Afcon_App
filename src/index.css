@@ -22,3 +22,18 @@
   scrollbar-width: none;
   scroll-behavior: smooth;
 }
+
+/* .player-card::after{
+  content:"";
+  position:absolute;
+  height: 14.85rem;
+  width:14.85rem;
+  background-color: black;
+  border:1px solid black;
+  border-radius: 1.2rem;
+  /* transform: rotate(45deg); */
+  /* left:50%;
+  transform: translateX(-50%) rotate(45deg);
+  bottom:-115px;
+  z-index:-1;
+} */ 
