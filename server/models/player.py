@@ -1,4 +1,4 @@
-rom sqlalchemy_serializer import SerializerMixin
+from sqlalchemy_serializer import SerializerMixin
 from .dbconfig import db
 from sqlalchemy.orm import relationship
 
