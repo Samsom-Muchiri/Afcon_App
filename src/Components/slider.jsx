@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import classNames from "classnames";
 import "../Style Sheets/slider-st.css"; // Replace with your actual CSS file name
 
-function CitiesSlider() {
-  const IMAGE_PARTS = 4;
-  const AUTOCHANGE_TIME = 4000;
+const IMAGE_PARTS = 4;
+const AUTOCHANGE_TIME = 4000;
 
+function CitiesSlider() {
   const [activeSlide, setActiveSlide] = useState(-1);
   const [prevSlide, setPrevSlide] = useState(-1);
   const [sliderReady, setSliderReady] = useState(false);
-  let changeTO = null;
+
   const slides = [
     {
       city: "Nairobi",
@@ -27,42 +27,28 @@ function CitiesSlider() {
       img: "https://media.istockphoto.com/id/802551426/photo/kampala-downtown.jpg?b=1&s=612x612&w=0&k=20&c=l1c3U_btYvSXqckEiFFm3KIywO4KnY8zPmpBxtD_1oI=",
     },
   ];
+
   useEffect(() => {
     setTimeout(() => {
       setActiveSlide(0);
       setSliderReady(true);
     }, 0);
-
-    return () => {
-      window.clearTimeout(changeTO);
-    };
   }, []);
 
-  function changeSlides(change) {
+  const changeSlides = (change) => {
     const length = slides.length;
-    let newActiveSlide = activeSlide + change;
-    if (newActiveSlide < 0) newActiveSlide = length - 1;
-    if (newActiveSlide >= length) newActiveSlide = 0;
+    const currentSlideIndex = (activeSlide + change + length) % length;
     setPrevSlide(activeSlide);
-    setActiveSlide(newActiveSlide);
-  }
+    setActiveSlide(currentSlideIndex);
+  };
 
   useEffect(() => {
-    let slidePos = 0;
     const interval = setInterval(() => {
-      slidePos++;
-      if (slidePos <= 2) {
-        setPrevSlide(slidePos === 0 ? 2 : slidePos - 1);
-        setActiveSlide(slidePos);
-      } else {
-        slidePos = 0;
-        setPrevSlide(3);
-        setActiveSlide(slidePos);
-      }
-    }, 5000);
+      changeSlides(1);
+    }, AUTOCHANGE_TIME);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [activeSlide]);
 
   return (
     <div className={classNames("slider", { "s--ready": sliderReady })}>

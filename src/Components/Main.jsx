@@ -9,6 +9,7 @@ import Nav from "./Nav";
 import Home from "./Home";
 import Qualifiers from "./Qualifiers/Qualifiers";
 import TicketStore from "./TicketStore";
+import HostCities from "./HostCities";
 
 function Main() {
   const routes = createBrowserRouter(
@@ -17,6 +18,7 @@ function Main() {
         <Route index element={<Home />} />
         <Route path="buy_ticket" element={<TicketStore />} />
         <Route path="/qualifiers" element={<Qualifiers />} />
+        <Route path="/host_cities" element={<HostCities />} />
       </Route>
     )
   );
