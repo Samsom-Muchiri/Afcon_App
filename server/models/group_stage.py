@@ -14,5 +14,9 @@ class GroupStage(db.Model, SerializerMixin):
     def __repr__(self):
         return f'GroupStage({self.name})'
 
-
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name
+        }
 

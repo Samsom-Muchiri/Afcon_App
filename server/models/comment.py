@@ -17,3 +17,10 @@ class Comment(db.Model, SerializerMixin):
 
     def __repr__(self):
         return f'Comment({self.id}, User: {self.user_id}, Date: {self.created_at})'
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'user_id': self.user_id,
+            'content': self.content
+        }

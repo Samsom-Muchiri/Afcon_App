@@ -27,3 +27,13 @@ class Country(db.Model, SerializerMixin):
     
     def __repr__(self):
         return f'Country({self.name})'
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name, 
+            'coach': self.coach,
+            'star_rating': self.star_rating,
+            'flag_url': self.flag_url,
+            'group_id': self.group_id
+        }
