@@ -79,7 +79,7 @@ function Nav() {
                     <hr />
                   </li>
                   <li>
-                    <Link to="/">Host Countries & Cities</Link>
+                    <Link to="/host_cities">Host Countries & Cities</Link>
                     <hr />
                   </li>
                   <li>
