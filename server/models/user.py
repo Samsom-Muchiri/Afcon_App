@@ -18,6 +18,13 @@ class User(db.Model, SerializerMixin, UserMixin):
     # last_login = db.Column(db.DateTime)
     # role = db.Column(db.String(50)) # if you want user roles
     
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'name': self.name,
+            'email': self.email
+        }
+    
     # Password hashing functions
     def set_password(self, password):
         self.password = generate_password_hash(password).decode('utf-8')
