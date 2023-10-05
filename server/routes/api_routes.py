@@ -1,9 +1,10 @@
-from flask import jsonify, Blueprint
+from flask import jsonify, Blueprint, request
 from models.user import User
 from models.group_stage import GroupStage
 from models.country import Country
 from models.player import Player
 from models.comment import Comment
+from app import db
 # from flask_cors import CORS
 # import os
 
@@ -51,26 +52,6 @@ def get_player(id):
     player = Player.query.get_or_404(id)
     return jsonify(player.to_dict())
 
-# @api_bp.route('/reviews', methods=['GET'])
-# def get_reviews():
-#     reviews = Review.query.all()
-#     return jsonify([review.to_dict() for review in reviews])
-
-# @api_bp.route('/reviews/<int:id>', methods=['GET'])
-# def get_review(id):
-#     review = Review.query.get_or_404(id)
-#     return jsonify(review.to_dict())
-
-@api_bp.route('/reviews', methods=['POST'])
-def post_review():
-    # Implement the review posting logic here
-    pass
-
-# @api_bp.route('/reviews/<int:id>', methods=['DELETE'])
-# def delete_review(id):
-#     # Implement the review deletion logic here
-#     pass
-
 @api_bp.route('/comments', methods=['GET'])
 def get_comments():
     comments = Comment.query.all()
@@ -82,21 +63,27 @@ def get_comment(id):
     return jsonify(comment.to_dict())
 
 @api_bp.route('/comments', methods=['POST'])
-def post_comment():
-    # Implement the comment posting logic here
-    pass
+def create_comment():
+    data = request.get_json()
+    new_comment = Comment(content=data['content'])
+    db.session.add(new_comment)
+    db.session.commit()
+    return jsonify({'message': 'Comment created successfully'})
+
+
+@api_bp.route('/comments/<int:id>', methods=['PATCH'])
+def update_comment(id):
+    comment = Comment.query.get_or_404(id)
+    data = request.get_json()
+    if 'content' in data:
+        comment.content = data['content']
+    db.session.commit()
+    return jsonify({'message': 'Comment updated successfully'})
 
 @api_bp.route('/comments/<int:id>', methods=['DELETE'])
 def delete_comment(id):
-    # Implement the comment deletion logic here
-    pass
+    comment = Comment.query.get_or_404(id)
+    db.session.delete(comment)
+    db.session.commit()
+    return jsonify({'message': 'Comment deleted successfully'})
 
-# @api_bp.route('/cities', methods=['GET'])
-# def get_cities():
-#     cities = City.query.all()
-#     return jsonify([city.to_dict() for city in cities])
-
-# @api_bp.route('/cities/<int:id>', methods=['GET'])
-# def get_city(id):
-#     city = City.query.get_or_404(id)
-#     return jsonify(city.to_dict())
