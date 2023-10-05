@@ -10,9 +10,10 @@ class Player(db.Model, SerializerMixin):
     name = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False, default=18)  # default age to be 18.
     photo_url = db.Column(db.String(500))  # a rough length for URL.
-    country_id = db.Column(db.Integer, db.ForeignKey('countries.id'), nullable=False)
+    country_id = db.Column(db.Integer, db.ForeignKey('countries.id'))
 
     # Relationship
+    
     country = relationship('Country', backref='players', primaryjoin='Player.country_id == Country.id')
 
     def __repr__(self):
