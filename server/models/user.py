@@ -7,6 +7,7 @@ class User(db.Model, SerializerMixin, UserMixin):
     __tablename__ = 'users'
     serialize_rules = ('-password',)  # never serialize the password
     
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(150), nullable=False, unique=True)

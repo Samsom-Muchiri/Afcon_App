@@ -4,7 +4,7 @@ from models.group_stage import GroupStage
 from models.country import Country
 from models.player import Player
 from models.comment import Comment
-from app import db
+from models.dbconfig import db
 # from flask_cors import CORS
 # import os
 
@@ -15,7 +15,8 @@ api_bp = Blueprint('api_bp', __name__)
 @api_bp.route('/users', methods=['GET'])
 def get_users():
     users = User.query.all()
-    return jsonify([user.to_dict() for user in users])
+    users_list = [{'id': user.id, 'name': user.name, 'email': user.email} for user in users]
+    return jsonify(users_list)
 
 @api_bp.route('/users/<int:id>', methods=['GET'])
 def get_user(id):
