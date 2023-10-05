@@ -48,9 +48,9 @@ function WhatsNew() {
           </p>
         </div>
 
-        {gridNews.map((news) => {
+        {gridNews.map((news,index) => {
           return (
-            <div className="small-news">
+            <div key={index} className="small-news">
               <div className="img-container">
                 <img src={news.img} alt="" />
               </div>

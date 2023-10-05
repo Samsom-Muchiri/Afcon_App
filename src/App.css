@@ -18,14 +18,14 @@ body {
 /* Flex dox start */
 .fxs {
   display: flex;
-  justify-content: start;
+  justify-content:  flex-start;
   flex-wrap: wrap;
 }
 
 /* Flex box end */
 .fxe {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   flex-wrap: wrap;
 }
 

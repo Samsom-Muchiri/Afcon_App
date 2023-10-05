@@ -11,6 +11,7 @@ import SpecificCountry from "./Qualifiers/reusables/SpecificCountry";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import TicketStore from "./TicketStore";
+import Comments from "./Qualifiers/reusables/Comments";
 
 
 function Main() {
@@ -22,6 +23,7 @@ function Main() {
         <Route path="/qualifiers" element={<Qualifiers />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
+        {/* <Route path='/comments' element={<Comments />} /> */}
         <Route path="/countries/:id" element={<SpecificCountry/>} />
       </Route>
     )

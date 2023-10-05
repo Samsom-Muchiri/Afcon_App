@@ -33,7 +33,7 @@ const SpecificCountry = () => {
          
         </header>
 
-        <section className="w-[94%] mx-auto">
+        <section className="w-[94%] mx-auto pb-8">
 
         <h1 className="text-2xl font-medium mb-8 mt-7">Squad</h1>
         {

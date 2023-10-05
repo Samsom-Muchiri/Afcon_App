@@ -25,7 +25,7 @@ const PlayerCard = ({eachPlayer}) => {
             <Flag className="absolute w-[1.9rem] h-[1.2rem] top-8 left-6 "></Flag>
             <PlayerImage className="h-[17rem] w-[17rem] absolute left-[50%] -translate-x-[50%] top-[4rem] rounded-lg"></PlayerImage>
             <div className="absolute bottom-3 left-[50%] -translate-x-[50%] w-[18rem] ">
-                <p className="font-medium text-lg border-b-[1px] border-b-gray-200">{eachPlayer.name}</p>
+                <p className="font-medium text-md border-b-[1px] border-b-gray-200">{eachPlayer.name}</p>
                 <p>age: {eachPlayer.age}</p>
             </div>
         </div>

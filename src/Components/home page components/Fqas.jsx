@@ -44,19 +44,19 @@ function Fqas() {
         className="scroll-btn scroll-l"
         onClick={() => moveSlider(sliderRef, 1)}
       >
-        <span class="material-symbols-outlined scroll-l">arrow_back_ios</span>
+        <span className="material-symbols-outlined scroll-l">arrow_back_ios</span>
       </div>
       <div
         className="scroll-btn scroll-r"
         onClick={() => moveSlider(sliderRef, 1)}
       >
-        <span class="material-symbols-outlined">arrow_forward_ios</span>
+        <span className="material-symbols-outlined">arrow_forward_ios</span>
       </div>
       <div className="fq-slider" ref={sliderRef}>
         <div className="fq-sl-container">
-          {qas.map((data) => {
+          {qas.map((data,index) => {
             return (
-              <div className="qa-card" key={data.qa}>
+              <div key={index} className="qa-card">
                 {data.qa}
               </div>
             );
