@@ -27,7 +27,7 @@ with app.app_context():
 
     # Create sample data for the User model
     print('Creating user objects...')
-    user1 = User(name='nate wamzy', email='nate@example.com')
+    user1 = User(name='nate wamzy', email='nate@example.com', country='Rwanda')
     user1.set_password('password1')
 
     user2 = User(name='Joy njunguna', email='joy@example.com', country='Canada')
@@ -45,7 +45,7 @@ with app.app_context():
     group_stage2 = GroupStage(name='Group B')
 
     # Add the data to the session
-    db.session.add_all([user1, user2, group_stage1, group_stage2])
+    db.session.add_all([user1, user2, user3, user4, group_stage1, group_stage2])
     db.session.commit()
 
     # Create sample data for the Country model
@@ -86,10 +86,21 @@ with app.app_context():
     
 
     # Create sample data for the Comment model
-    comment1 = Comment(user=user1, content='Comment 1', created_at=datetime.utcnow())
-    comment2 = Comment(user=user2, content='Comment 2', created_at=datetime.utcnow())
+    comment1 = Comment(user=user1, content="Kampala has really upped its game in terms of infrastructure for the AFCON. Kudos!", created_at=datetime.utcnow())
+    comment2 = Comment(user=user1, content="Kasarani's stadium atmosphere is electrifying! Nothing beats watching a match there.", created_at=datetime.utcnow())
+    comment3 = Comment(user=user1, content="The Egypt squad is young and energetic. The future looks bright for them.", created_at=datetime.utcnow())
+    comment4 = Comment(user=user2, content="Loved the cultural festivals in Kisumu during match days. It added so much vibrancy to the event.", created_at=datetime.utcnow())
+    comment5 = Comment(user=user2, content="Algeria's team looks stronger than ever. Can't wait to see them in the finals.", created_at=datetime.utcnow())
+    comment6 = Comment(user=user2, content='Nairobi has blended the historical with the modern so well for this AFCON. The fan zones near the old medina are a treat.', created_at=datetime.utcnow())
+    comment7 = Comment(user=user3, content='Cameroon has always had a special team in AFCON history. Hope they shine this year too.', created_at=datetime.utcnow())
+    comment8 = Comment(user=user3, content="Atal has been a wall in defense for Morocco. Opponents can't get past him.", created_at=datetime.utcnow())
+    comment9 = Comment(user=user3, content="Sadio Mané is Senegal's pride. His dribbling skills had me at the edge of my seat.", created_at=datetime.utcnow())
+    comment10 = Comment(user=user4, content="Mohamed Salah's performance last night was world-class. Egypt has a gem!", created_at=datetime.utcnow())
+    
+    
+    
 
-    db.session.add_all([comment1, comment2])
+    db.session.add_all([comment1, comment2, comment3, comment4, comment5, comment6, comment7, comment8, comment9, comment10])
     db.session.commit()
 
     print('Complete.')
