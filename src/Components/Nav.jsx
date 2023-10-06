@@ -5,6 +5,7 @@ import "../Style Sheets/nav.css";
 import Comments from "./Qualifiers/reusables/Comments.jsx";
 import { Box, Fade, Modal, Typography } from "@mui/material";
 import Backdrop from '@mui/material/Backdrop';
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -117,10 +118,25 @@ function Nav() {
             </div>
           </div>
 
-          <div className="profile">
-            <span className="material-symbols-outlined">person</span>
-          </div>
+
+          
+          <Dropdown>
+      <DropdownTrigger>
+        <Button variant="bordered" className='border-none'>
+        <div className="profile">
+          <span className="material-symbols-outlined text-white">person</span>
         </div>
+        </Button>
+            </DropdownTrigger>
+      <DropdownMenu aria-label="Static Actions">
+        <DropdownItem key="new" textValue="user" className="bg-blue-500 hover:text-black mb-2 text-center" ><NavLink to='/signin' className='text-md uppercase text-white'>Sign In</NavLink></DropdownItem>
+        <DropdownItem key="copy" textValue="user" className="bg-green-600 hover:text-black mb-2 text-center"><NavLink to='/signup' className='text-md uppercase text-white'>Sign Up</NavLink></DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+            
+          
+        </div>
+
 
         {/* ___________Bottom mobile nav */}
         <div className="mobile-bottom-nav mobile">
@@ -160,10 +176,10 @@ function Nav() {
           </ul>
         </div>
       </nav>
-      <main className={` ${pathname=='/signin'|| pathname=='/signup'?'mt-0 pt-0':'lg:mt-[1.82rem] mt-[1.14rem]'}`}>
+      <main className={` ${pathname=='/signin'|| pathname=='/signup'?'mt-0 pt-0':'lg:mt-[1.5rem] mt-[1.14rem]'}`}>
         <Outlet />
       </main>
-      <Footer />
+      <Footer /> 
 
 
       <Modal aria-labelledby="transition-modal-title" aria-describedby="transition-modal-description" open={open3} onClose={handleClose3} closeaftertransitionslots={{ backdrop: Backdrop }} slotProps={{ backdrop: { timeout: 500, },}} >

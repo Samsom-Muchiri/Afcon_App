@@ -5,7 +5,7 @@ const SignIn = () => {
   return (
     <div className="h-screen w-full font-poppins">
         <div className="flex justify-between">
-            <Section className="w-[61%] h-screen text-white flex pl-16">
+            <Section className="w-[61%] hidden h-screen text-white lg:flex pl-16">
               <div className="  w-[35rem] ">
                 <h1 className=" text-4xl mt-20 mb-20"><span className="font-extrabold">FIFA</span> ID</h1>
                 <h1 className="font-medium text-[4rem]">Football at your fingertips.</h1>

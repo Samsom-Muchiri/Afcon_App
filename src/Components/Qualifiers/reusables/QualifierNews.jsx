@@ -2,15 +2,15 @@ import styled from 'styled-components';
 
 const QualifierNews = () => {
   return (
-    <Section className="the_grid">
+    <Section className="the_grid lg:grid h-fit">
         <div className=" grid-box cursor-pointer" >
             <div className="overflow-hidden rounded-xl">
                 <div className="div w-full h-[25rem] rounded-xl hover:scale-[1.07] transition-all duration-300">
 
                 </div>
             </div>
-            <p className="mt-4 mb-6 font-semibold text-[1.7rem] w-[35rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
-            <p>We hear from Laos interim head coach Kanlaya Sysomvang, who has ambitions of leading his team all the way to the FIFA World Cup.</p>
+            <p className="mt-4 mb-6 font-medium flex-wrap text-[1.1rem] lg:text-[1.7rem] lg:w-[35rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
+            <p className=''>We hear from Laos interim head coach Kanlaya Sysomvang, who has ambitions of leading his team all the way to the FIFA World Cup.</p>
         </div>
         <div className=" grid-box cursor-pointer">
             <div className="overflow-hidden rounded-xl">
@@ -18,7 +18,7 @@ const QualifierNews = () => {
 
                 </div>
             </div>
-            <p className="mt-4 mb-6 font-semibold text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
+            <p className="mt-4 mb-6 font-medium text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
         </div>
         <div className=" grid-box cursor-pointer">
             <div className="overflow-hidden rounded-xl">
@@ -26,7 +26,7 @@ const QualifierNews = () => {
 
                 </div>
             </div>
-            <p className="mt-4 mb-6 font-semibold text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
+            <p className="mt-4 mb-6 font-medium text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
         </div>
         <div className=" grid-box cursor-pointer">
             <div className="overflow-hidden rounded-xl">
@@ -34,7 +34,7 @@ const QualifierNews = () => {
 
                 </div>
             </div>
-            <p className="mt-4 mb-6 font-semibold text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
+            <p className="mt-4 mb-6 font-medium text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
         </div>
         <div className=" grid-box cursor-pointer">
         <div className="overflow-hidden rounded-xl">
@@ -42,7 +42,7 @@ const QualifierNews = () => {
 
                 </div>
             </div>
-            <p className="mt-4 mb-6 font-semibold text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
+            <p className="mt-4 mb-6 font-medium text-[1rem] w-[17rem]">Pep-inspired Sysomvang pursuing big dream with Laos</p>
         </div>
     </Section>
   )
@@ -50,7 +50,6 @@ const QualifierNews = () => {
 
 const Section=styled.section`
 // background-color:red;
-display:grid;
 grid-template-columns:2fr 1fr 1fr;
 column-gap:1.5rem;
 row-gap:1.3rem;

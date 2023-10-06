@@ -5,7 +5,7 @@ const Matches = () => {
     const containerRef = useRef(null);
   const [isAtFarLeft, setIsAtFarLeft] = useState(true);
   const [isAtFarRight, setIsAtFarRight] = useState(false);
-
+  const [addWidth, setAddWidth] = useState(false);
   
 
   useEffect(() => {
@@ -41,20 +41,22 @@ const Matches = () => {
     <div>
         <div className="relative">
             <div
-              className="matches flex gap-4 overflow-x-scroll"
+              className={`matches ${addWidth?"h-fit pb-2": "h-[28rem]"} transition-all duration-800 lg:h-fit gap-y-4 overflow-y-hidden grid grid-cols-1 lg:flex lg:gap-4 lg:overflow-x-scroll`}
               ref={containerRef}
             >
-              <MatchCard />
-              <MatchCard />
-              <MatchCard />
-              <MatchCard />
-              <MatchCard />
-              <MatchCard />
+              <MatchCard teamA="Ghana" teamB="Senegal" scoreA="1" scoreB="3" date="21 July 2023" />
+              <MatchCard teamA="Algeria" teamB="Tunisia" scoreA="2" scoreB="0" date="24 July 2023"/>
+              <MatchCard teamA="Ivory Coast" teamB="Nigeria" scoreA="1" scoreB="4" date="30 July 2023"/>
+              <MatchCard teamA="Egypt" teamB="South Africa" scoreA="4" scoreB="3" date="3 August 2023"/>
+              <MatchCard teamA="Kenya" teamB="Tanzania" scoreA="1" scoreB="0" date="3 August 2023"/>
+              <MatchCard teamA="DRC" teamB="Morocco" scoreA="0" scoreB="2" date="21 July 2023"/>
             </div>
+          
+            <button onClick={(e)=>setAddWidth(!addWidth)} className="lg:hidden bg-blue-500 text-white text-sm py-1 px-3 rounded-lg hover:bg-blue-600">{addWidth?"See Less":"See More"}</button>
 
             {!isAtFarLeft > 0 && (
               <button
-                className="absolute top-[50%] -translate-y-[50%] text-red-500"
+                className="absolute lg:block hidden top-[50%] -translate-y-[50%] text-red-500"
                 onClick={handleScrollLeft}
               >
                 <svg
@@ -77,7 +79,7 @@ const Matches = () => {
               containerRef.current?.scrollWidth -
                 containerRef.current?.clientWidth && (
               <button
-                className="absolute top-[50%] -translate-y-[50%] right-0 text-red-500"
+                className="absolute lg:block hidden top-[50%] -translate-y-[50%] right-0 text-red-500"
                 onClick={handleScrollRight}
               >
                 <svg

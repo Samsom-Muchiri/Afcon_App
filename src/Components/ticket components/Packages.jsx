@@ -53,13 +53,13 @@ function Packages() {
         for you.
       </p>
       <div className="fxc">
-        {packageTicket.map((data) => {
+        {packageTicket.map((data,index) => {
           return (
-            <div className={`package-card ${data.ticketType}`}>
+            <div key={index} className={`package-card ${data.ticketType}`}>
               <h2>All Matches Package</h2>
-              {data.matches.map((mt) => {
+              {data.matches.map((mt,index) => {
                 return (
-                  <div className="team-row ">
+                  <div key={index} className="team-row ">
                     <span>{mt.teamA}</span>
                     <img src={mt.imgA} alt="" />
                     <div className="vs">vs</div>

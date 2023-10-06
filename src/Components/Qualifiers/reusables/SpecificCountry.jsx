@@ -25,7 +25,7 @@ const SpecificCountry = () => {
   return (
     <div className="w-full h-full font-poppins bg-bgcolor">
       <div className="">
-        <header className="capitalize text-2xl h-[11rem] bg-red-500 text-white flex items-center pl-10">
+        <header className="capitalize text-2xl h-[7rem] lg:h-[11rem] bg-red-500 text-white flex items-center pl-10">
           <div className="flex items-center gap-x-4">
             <Flag className=" w-[4rem] h-[2.7rem]"></Flag>
             <span className="font-medium text-3xl">{COUNTRY}</span>
@@ -38,7 +38,7 @@ const SpecificCountry = () => {
         <h1 className="text-2xl font-medium mb-8 mt-7">Squad</h1>
         {
           players?
-          (<div className="grid grid-cols-4 gap-7">
+          (<div className="grid lg:grid-cols-4 gap-7">
           {
             players.map((eachPlayer, index)=>{
               return <PlayerCard key={index} eachPlayer={eachPlayer}/>

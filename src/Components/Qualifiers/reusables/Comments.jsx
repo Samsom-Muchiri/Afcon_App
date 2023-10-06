@@ -44,6 +44,7 @@ const Comments = ({handleClose3}) => {
     axios.post(`${URL}`,SUBMITTED_COMMENT)
     .then(response=>{
       alert("Posted successfully!")
+      setTypedComment("")
       const newComments=[...comments,SUBMITTED_COMMENT]
       setComments(newComments)
     })
