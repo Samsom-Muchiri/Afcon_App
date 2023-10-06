@@ -15,19 +15,19 @@ class Player(db.Model, SerializerMixin):
 
     # Relationship
     
-    country = relationship('Country', backref='players', primaryjoin='Player.country_id == Country.id')
+    # country = relationship('Country', backref='players', primaryjoin='Player.country_id == Country.id')
 
     def __repr__(self):
         return f'Player({self.name}, Country: {self.country_id})'
     
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'name': self.name, 
-            'age': self.age,
-            'photo_url': self.photo_url,
-            'country_id': self.country_id
-        }
+    # def to_dict(self):
+    #     return {
+    #         'id': self.id,
+    #         'name': self.name, 
+    #         'age': self.age,
+    #         'photo_url': self.photo_url,
+    #         'country_id': self.country_id
+    #     }
         
     @validates('photo_url')
     def validate_photo_url(self, key, url):
