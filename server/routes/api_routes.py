@@ -1,4 +1,4 @@
-from flask import jsonify, Blueprint, request
+from flask import jsonify, Blueprint, request, make_response
 from models.user import User
 from models.group_stage import GroupStage
 from models.country import Country
@@ -12,11 +12,18 @@ from models.dbconfig import db
 api_bp = Blueprint('api_bp', __name__)
 
 
+
 @api_bp.route('/users', methods=['GET'])
 def get_users():
     users = User.query.all()
-    users_list = [{'id': user.id, 'name': user.name, 'email': user.email} for user in users]
-    return jsonify(users_list)
+    users_list = []
+    for user in users:
+        response_dict = user.to_dict()
+        users_list.append(response_dict)
+    response = make_response(
+        jsonify(users_list), 200)    
+    return response
+    
 
 @api_bp.route('/users/<int:id>', methods=['GET'])
 def get_user(id):
@@ -25,18 +32,19 @@ def get_user(id):
 
 @api_bp.route('/group_stages', methods=['GET'])
 def get_group_stages():
-    stages = GroupStage.query.all()
-    return jsonify([stage.to_dict() for stage in stages])
+    group_stages = GroupStage.query.all()
+    group_stages_list = [group_stage.to_dict() for group_stage in group_stages]
+    return jsonify(group_stages_list)
 
 @api_bp.route('/group_stages/<int:id>', methods=['GET'])
 def get_group_stage(id):
-    stage = GroupStage.query.get_or_404(id)
-    return jsonify(stage.to_dict())
+    group_stage = GroupStage.query.get_or_404(id)
+    return jsonify(group_stage.to_dict())
 
 @api_bp.route('/countries', methods=['GET'])
 def get_countries():
-    countries = Country.query.all()
-    return jsonify([country.to_dict() for country in countries])
+    countries_list = Country.query.all()
+    return jsonify([country.to_dict() for country in countries_list])
 
 @api_bp.route('/countries/<int:id>', methods=['GET'])
 def get_country(id):
@@ -45,8 +53,8 @@ def get_country(id):
 
 @api_bp.route('/players', methods=['GET'])
 def get_players():
-    players = Player.query.all()
-    return jsonify([player.to_dict() for player in players])
+    players_list = Player.query.all()
+    return jsonify([player.to_dict() for player in players_list])
 
 @api_bp.route('/players/<int:id>', methods=['GET'])
 def get_player(id):
@@ -55,8 +63,8 @@ def get_player(id):
 
 @api_bp.route('/comments', methods=['GET'])
 def get_comments():
-    comments = Comment.query.all()
-    return jsonify([comment.to_dict() for comment in comments])
+    comments_list = Comment.query.all()
+    return jsonify([comment.to_dict() for comment in comments_list])
 
 @api_bp.route('/comments/<int:id>', methods=['GET'])
 def get_comment(id):
@@ -66,11 +74,25 @@ def get_comment(id):
 @api_bp.route('/comments', methods=['POST'])
 def create_comment():
     data = request.get_json()
-    new_comment = Comment(content=data['content'])
+
+    # Validate input data
+    if not data:
+        return jsonify({'error': 'No data provided'}), 400
+
+    content = data.get('content')
+    user_id = data.get('user_id')
+
+    if not content:
+        return jsonify({'error': 'Content is required'}), 400
+    if not user_id:
+        return jsonify({'error': 'User ID is required'}), 400
+
+    new_comment = Comment(content=content, user_id=user_id)
+    
     db.session.add(new_comment)
     db.session.commit()
-    return jsonify({'message': 'Comment created successfully'})
 
+    return jsonify(new_comment.to_dict()), 201
 
 @api_bp.route('/comments/<int:id>', methods=['PATCH'])
 def update_comment(id):
@@ -79,12 +101,11 @@ def update_comment(id):
     if 'content' in data:
         comment.content = data['content']
     db.session.commit()
-    return jsonify({'message': 'Comment updated successfully'})
+    return jsonify(comment.to_dict())
 
 @api_bp.route('/comments/<int:id>', methods=['DELETE'])
 def delete_comment(id):
     comment = Comment.query.get_or_404(id)
     db.session.delete(comment)
     db.session.commit()
-    return jsonify({'message': 'Comment deleted successfully'})
-
+    return jsonify({'id': comment.id, 'message': 'Comment deleted successfully'})

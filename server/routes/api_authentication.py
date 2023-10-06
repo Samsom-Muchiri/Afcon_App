@@ -41,30 +41,30 @@ def logout():
 # Route to register a new user.The client should send a JSON object with user details.
 @auth_bp.route('/register', methods=['POST'])
 def register():
-    data = request.json
-    email = data.get('email')
-    password = data.get('password')
-    name = data.get('name')
-    # country = data.get('country')
-    # profile_picture = data.get('profile_picture')  # Or set a default
-    
+    # Check if data was provided
+    if not request.json:
+        return jsonify({"message": "No data provided!"}), 400
+
+    email = request.json.get('email')
+    password = request.json.get('password')
+    name = request.json.get('name')
+
+    # Ensure all required fields are provided
+    if not all([email, password, name]):
+        return jsonify({"message": "Missing fields!"}), 400
+
     # Check if user exists
     existing_user = User.query.filter_by(email=email).first()
     if existing_user:
         return jsonify({"message": "User already exists!"}), 409
-    
-    new_user = User(
-        email=email,
-        name=name,
-        # country=country,
-        # profile_picture=profile_picture
-    )
+
+    new_user = User(email=email, name=name)
     new_user.set_password(password)
+
     db.session.add(new_user)
     db.session.commit()
-    
-    return jsonify({"message": "User registered successfully!"}), 201
 
+    return jsonify({"message": "User registered successfully!"}), 201
 
 # Route to get details of the currently logged-in user.
 @auth_bp.route('/profile')

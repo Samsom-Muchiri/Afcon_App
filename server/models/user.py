@@ -5,7 +5,8 @@ from .dbconfig import db
 
 class User(db.Model, SerializerMixin, UserMixin):
     __tablename__ = 'users'
-    serialize_rules = ('-password',)  # never serialize the password
+    serialize_rules = ('-comments.user',)  # never serialize the password
+    # serialize_rules = ('-comments.user', '-password',) 
     
 
     id = db.Column(db.Integer, primary_key=True)
@@ -18,6 +19,15 @@ class User(db.Model, SerializerMixin, UserMixin):
     updated_at = db.Column(db.DateTime, onupdate=db.func.now())
     # last_login = db.Column(db.DateTime)
     # role = db.Column(db.String(50)) # if you want user roles
+    comments = db.relationship('Comment', backref='user')
+    
+    # def to_dict(self):
+    #     return {
+    #         'id': self.id,
+    #         'name': self.name,
+    #         'email': self.email,
+    #         # 'comment': self.comment
+    #     }
     
     # Password hashing functions
     def set_password(self, password):

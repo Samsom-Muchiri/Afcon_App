@@ -31,7 +31,7 @@ login_manager.login_view = 'auth_bp.login'
 
 # Register blueprints
 app.register_blueprint(auth_bp, url_prefix='/auth')
-app.register_blueprint(api_bp, url_prefix='/api')
+app.register_blueprint(api_bp)
 
 # loads the user object 
 @app.login_manager.user_loader
