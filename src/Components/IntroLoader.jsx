@@ -10,7 +10,10 @@ function IntroLoader() {
     }, 5000);
   }, []);
   return (
-    <div className={isLoading ? "loading " : "loaded loading"}>
+    <div
+      className={isLoading ? "loading " : "loaded loading"}
+      style={isLoading ? { pointerEvents: "all" } : { pointerEvents: "none" }}
+    >
       <img
         src={cup}
         alt=""
