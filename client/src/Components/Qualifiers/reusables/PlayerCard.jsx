@@ -1,13 +1,5 @@
-import styled from "styled-components";
-
-const FLAG="https://media.istockphoto.com/id/1217456327/vector/national-france-flag-vector-illustration.jpg?s=612x612&w=0&k=20&c=73SCididFCKYTo035ilEGq9dMI5hvzqoIAdsMUt9Miw="
-// let photo_url;
-// console.log(photo_url)
-//  const photo_url
 const PlayerCard = ({eachPlayer,theCountry}) => {
-    // const name="Mohamed Salah"
-    // const age=30
-    // console.log(eachPlayer)
+  
     const photo_url=eachPlayer.photo_url
     
     const containerStyle = {
@@ -40,14 +32,6 @@ const PlayerCard = ({eachPlayer,theCountry}) => {
   )
 }
 
-const Flag=styled.div`
-          background-image:url(${FLAG});
-          background-size:100% 100%;
-          // background-color:red;
-          background-repeat:no-repeat;
-          background-position: center center;
-          background-attachment:scroll;
-`;
 
 
 export default PlayerCard

@@ -1,4 +1,3 @@
-import styled from "styled-components";
 import PlayerCard from "./PlayerCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -57,15 +56,9 @@ const SpecificCountry = () => {
             country.players&&country.players.map((eachPlayer, index)=>{
               if (eachPlayer){
                 return <PlayerCard key={index} eachPlayer={eachPlayer} theCountry={COUNTRY_FLAG}/>
-                // return <h1  key={index}>How</h1>
               }
-              // return <h1 key={index}>Loading...</h1>
             })
           }
-          {/* Hello */}
-          {/* {
-          console.log(country.players)
-} */}
         </div>)
         :<h1>Loading...</h1>
         }
@@ -75,13 +68,5 @@ const SpecificCountry = () => {
   )
 }
 
-const Flag=styled.div`
-          background-image:url(${FLAG});
-          background-size:100% 100%;
-          // background-color:red;
-          background-repeat:no-repeat;
-          background-position: center center;
-          background-attachment:scroll;
-`;
 
 export default SpecificCountry

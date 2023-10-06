@@ -18,62 +18,6 @@ const Qualifiers = () => {
             console.log("Error while getting group stages")
         })
     },[])
-//   const GROUP_STAGES=[
-//     {
-//         Name:'Group A',
-//         countries:[
-//             {
-//                 id:1,
-//                 name:"NED",
-//                 coach:"Johnson"
-//             },
-//             {
-//                 id:2,
-//                 name:"SEN",
-//                 coach:"Johnson"
-//             },
-//             {
-//                 id:3,
-//                 name:"ECU",
-//                 coach:"Johnson"
-//             },
-//             {
-//                 id:4,
-//                 name:"QTR",
-//                 coach:"Johnson"
-//             }
-//         ]
-
-//     },
-//     {
-//         Name:'Group B',
-//         countries:[
-//             {
-//                 id:5,
-//                 name:"ENG",
-//                 coach:"Johnson"
-//             },
-//             {
-//                 id:6,
-//                 name:"USA",
-//                 coach:"Johnson"
-//             },
-//             {
-//                 id:7,
-//                 name:"IRN",
-//                 coach:"Johnson"
-//             },
-//             {
-//                 id:8,
-//                 name:"WAL",
-//                 coach:"Johnson"
-//             }
-//         ]
-
-//     },
-
-//   ]
-
   return (
     <div className="h-full w-full bg-bgcolor font-poppins">
       <div className="h-full ">

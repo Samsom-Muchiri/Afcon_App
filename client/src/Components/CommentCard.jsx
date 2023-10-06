@@ -1,6 +1,5 @@
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
 const CommentCard = ({eachComment,handleDelete}) => {
-    // const STATUS="Doner"
   return (
     <div className='w-full mb-2'>
         <div className="uptaken relative flex justify-between w-full h-[7rem] rounded-lg  bg-secondary border-2 border-[#c3c6ce] transition-all duration-500 shadow-[0_0_4px_rgba(0,0,0,0.2)] hover:shadow-[0_4px_10px_0_rgba(0,0,0,0.28)] overflow-hidden">
@@ -24,7 +23,6 @@ const CommentCard = ({eachComment,handleDelete}) => {
         </Button>
             </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        {/* <DropdownItem key="new" textValue="user" ><span className='text-xl'>Submit</span></DropdownItem> */}
         <DropdownItem className="px-4" onClick={(e)=>handleDelete(e,eachComment.id)} key="copy" textValue="user"><span className='text-lg bg-black rounded-lg px-3 py-2 text-red-600'>Delete</span></DropdownItem>
       </DropdownMenu>
     </Dropdown>
