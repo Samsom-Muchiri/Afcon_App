@@ -8,12 +8,14 @@ import Backdrop from '@mui/material/Backdrop';
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [open3, setOpen3] =useState(false);
   const handleOpen3 = () => setOpen3(true);
   const handleClose3 = () => setOpen3(false);
 
   const {pathname}=useLocation()
   
+
   const MobileNavStyle = {
     fontVariationSettings: '"FILL" 0, "wght" 200, "GRAD" -25, "opsz" 24"',
     fontSize: "30px",
@@ -42,7 +44,11 @@ function Nav() {
 
   return (
     <div className="">
-      <nav className={`${pathname=='/signin'|| pathname=='/signup'?'hidden':''}`}>
+      <nav
+        className={`${
+          pathname == "/signin" || pathname == "/signup" ? "hidden" : ""
+        }`}
+      >
         <div className="top_header">
           <h1 className="name-logo">AFCON</h1>
           {/* _____________________Important desk links */}
@@ -81,15 +87,17 @@ function Nav() {
                     <hr />
                   </li>
                   <li>
+
                     <Link to="/qualifiers">Qualifiers</Link>
                     <hr />
                   </li>
                   <li>
                     <Link onClick={handleOpen3}>Comments</Link>
+
                     <hr />
                   </li>
                   <li>
-                    <Link to="/">Host Countries & Cities</Link>
+                    <Link to="/host_cities">Host Countries & Cities</Link>
                     <hr />
                   </li>
                   <li>
@@ -127,24 +135,33 @@ function Nav() {
           <ul>
             <NavLink to="/">
               <li>
-                <span className="material-symbols-outlined" style={MobileNavStyle}>
+                <span
+                  className="material-symbols-outlined"
+                  style={MobileNavStyle}
+                >
                   home
                 </span>{" "}
                 Home
               </li>
             </NavLink>
-            <NavLink to="/">
+            <NavLink to="host_cities">
               {" "}
               <li>
-                <span className="material-symbols-outlined" style={MobileNavStyle}>
+                <span
+                  className="material-symbols-outlined"
+                  style={MobileNavStyle}
+                >
                   brightness_high
                 </span>{" "}
-                Highlights
+                Hosts
               </li>
             </NavLink>
             <NavLink to="/">
               <li>
-                <span className="material-symbols-outlined" style={MobileNavStyle}>
+                <span
+                  className="material-symbols-outlined"
+                  style={MobileNavStyle}
+                >
                   sports_score
                 </span>{" "}
                 Scores
@@ -152,7 +169,10 @@ function Nav() {
             </NavLink>
 
             <li onClick={openMenu}>
-              <span className="material-symbols-outlined" style={MobileNavStyle}>
+              <span
+                className="material-symbols-outlined"
+                style={MobileNavStyle}
+              >
                 menu
               </span>{" "}
               Menu
@@ -160,7 +180,13 @@ function Nav() {
           </ul>
         </div>
       </nav>
-      <main className={` ${pathname=='/signin'|| pathname=='/signup'?'mt-0 pt-0':'lg:mt-[1.82rem] mt-[1.14rem]'}`}>
+      <main
+        className={` ${
+          pathname == "/signin" || pathname == "/signup"
+            ? "mt-0 pt-0"
+            : "lg:mt-[1.82rem] mt-[1.14rem]"
+        }`}
+      >
         <Outlet />
       </main>
       <Footer />
