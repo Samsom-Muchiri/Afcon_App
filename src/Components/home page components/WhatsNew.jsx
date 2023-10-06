@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 
 function WhatsNew() {
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  const handleImageLoad = () => {
+    setLoading(false);
+  };
+
+  const handleImageError = () => {
+    setLoading(false);
+    setError(true);
+  };
+
   const gridNews = [
     {
       img: "https://library.sportingnews.com/2022-01/zimbabwe-squad-afcon-2022_yrzeqmb1vw471uc2sut0i9xda.jpg",
@@ -52,7 +64,13 @@ function WhatsNew() {
           return (
             <div className="small-news">
               <div className="img-container">
-                <img src={news.img} alt="" />
+                <img
+                  src={news.img}
+                  alt=""
+                  onLoad={handleImageLoad}
+                  onError={handleImageError}
+                  style={{ display: loading || error ? "none" : "block" }}
+                />
               </div>
 
               <h4>{news.title}</h4>

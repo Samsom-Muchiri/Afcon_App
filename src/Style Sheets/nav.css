@@ -1,5 +1,5 @@
 main {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 nav {
   background-color: black;
@@ -148,7 +148,9 @@ nav a {
   }
   .mobile-bottom-nav {
     position: absolute;
-    bottom: -92.5vh;
+    bottom: -96vh;
+    padding-bottom: 20px;
+    padding-top: 5px;
     right: 0%;
     width: 100vw;
     background-color: rgb(3, 32, 3);
