@@ -32,6 +32,12 @@ with app.app_context():
 
     user2 = User(name='Joy njunguna', email='joy@example.com', country='Canada')
     user2.set_password('password2')
+    
+    user3 = User(name='Mercy Mochere', email='mochere@yahoo.com', country='Kenya')
+    user3.set_password3('password3')
+    
+    user3 = User(name='Carl Emmanuel', email='carl@yahoo.com', country='Kenya')
+    user3.set_password3('password3')
 
     # Create sample data for the GroupStage model
     print('Creating group_stage objects...')

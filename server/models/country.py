@@ -5,7 +5,7 @@ from .dbconfig import db
 
 class Country(db.Model, SerializerMixin):
     __tablename__ = 'countries'
-    serialize_rules = ('-players',)  # Assuming you don't want to serialize associated players by default
+    serialize_rules = ('-players.country', '-group_stage.countries',)  # Assuming you don't want to serialize associated players by default
     
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False, unique=True)
@@ -16,8 +16,9 @@ class Country(db.Model, SerializerMixin):
     # player_id = db.Column(db.Integer, db.ForeignKey('players.id'), nullable=False)
     
     # Relationships
-    group_stage = relationship('GroupStage', backref='related_countries')
-    # players = relationship('Player', backref='country', lazy='dynamic')
+    # group_stages = db.relationship('GroupStage', backref='country')
+    players = db.relationship('Player', backref='country', lazy='dynamic')
+    # country = relationship('Country', backref='players', primaryjoin='Player.country_id == Country.id')
     
     # Constraints
     table_args = (
@@ -28,12 +29,12 @@ class Country(db.Model, SerializerMixin):
     def __repr__(self):
         return f'Country({self.name})'
     
-    def to_dict(self):
-        return {
-            'id': self.id,
-            'name': self.name, 
-            'coach': self.coach,
-            'star_rating': self.star_rating,
-            'flag_url': self.flag_url,
-            'group_id': self.group_id
-        }
+    # def to_dict(self):
+    #     return {
+    #         'id': self.id,
+    #         'name': self.name, 
+    #         'coach': self.coach,
+    #         'star_rating': self.star_rating,
+    #         'flag_url': self.flag_url,
+    #         'group_id': self.group_id
+    #     }
