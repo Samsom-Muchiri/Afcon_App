@@ -43,6 +43,16 @@ function HostCities() {
           </video>
         </div>
       </div>
+      <h1 className="countery-head">UGANDA</h1>
+      <div className="fxc">
+        <div className="video-card">
+          <h1 className="country-name">DAR ES SALAM</h1>
+          <video autoPlay muted loop className="card-video">
+            <source src={dar} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
     </div>
   );
 }
