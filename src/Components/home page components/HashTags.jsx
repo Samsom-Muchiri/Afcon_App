@@ -71,9 +71,9 @@ function HashTags() {
     <div className="hash-tags">
       <h1 className="sec-header ">#AFCON27</h1>
       <div className="hash-tag-cards fxc">
-        {tags.map((data) => {
+        {tags.map((data,index) => {
           return (
-            <div className="hash-card">
+            <div key={index} className="hash-card">
               <img src={data.img} alt="" />
               <p>{data.body}</p>
               <div>

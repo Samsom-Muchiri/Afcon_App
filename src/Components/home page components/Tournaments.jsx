@@ -32,9 +32,9 @@ function Tournaments() {
     <div className="tournaments-container">
       <h1 className="sec-header">All TOURNAMENTS</h1>
       <div className="tournament-slider fxs">
-        {tournaments.map((data) => {
+        {tournaments.map((data,index) => {
           return (
-            <div className="tournament-card">
+            <div key={index} className="tournament-card">
               <img src={data.img} alt="" />
               <p>{data.title}</p>
             </div>
