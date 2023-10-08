@@ -2,6 +2,7 @@ import GroupTableRow from "./reusables/GroupTableRow";
 import QualifierNews from "./reusables/QualifierNews";
 import Matches from "./reusables/Matches";
 
+
 const Qualifiers = () => {
   const GROUP_STAGES=[
     {

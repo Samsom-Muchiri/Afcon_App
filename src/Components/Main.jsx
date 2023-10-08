@@ -11,7 +11,12 @@ import SpecificCountry from "./Qualifiers/reusables/SpecificCountry";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import TicketStore from "./TicketStore";
+
+import Comments from "./Qualifiers/reusables/Comments";
+
+
 import HostCities from "./HostCities";
+
 
 function Main() {
   const routes = createBrowserRouter(
@@ -23,6 +28,7 @@ function Main() {
         <Route path="/host_cities" element={<HostCities />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
+        {/* <Route path='/comments' element={<Comments />} /> */}
         <Route path="/countries/:id" element={<SpecificCountry/>} />
       </Route>
     )

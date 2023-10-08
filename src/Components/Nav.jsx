@@ -10,13 +10,21 @@ import {
 // import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "./Footer.jsx";
 import "../Style Sheets/nav.css";
+import Comments from "./Qualifiers/reusables/Comments.jsx";
+import { Box, Fade, Modal, Typography } from "@mui/material";
+import Backdrop from "@mui/material/Backdrop";
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { pathname } = useLocation();
+
+  const [open3, setOpen3] = useState(false);
+  const handleOpen3 = () => setOpen3(true);
+  const handleClose3 = () => setOpen3(false);
   const [profileOpen, setProfileOpen] = useState(false);
   const [userDetail, setUserDetail] = useState({});
-  const [userIsLoged, setUserIsLoged] = useState(false);
+
+  const { pathname } = useLocation();
+
   const MobileNavStyle = {
     fontVariationSettings: '"FILL" 0, "wght" 200, "GRAD" -25, "opsz" 24"',
     fontSize: "30px",
@@ -112,7 +120,12 @@ function Nav() {
                     <hr />
                   </li>
                   <li>
-                    <Link to="qualifiers">Qualifiers</Link>
+                    <Link to="/qualifiers">Qualifiers</Link>
+                    <hr />
+                  </li>
+                  <li>
+                    <Link onClick={handleOpen3}>Comments</Link>
+
                     <hr />
                   </li>
                   <li>
@@ -246,6 +259,28 @@ function Nav() {
         <Outlet />
       </main>
       <Footer />
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open3}
+        onClose={handleClose3}
+        closeaftertransitionslots={{ backdrop: Backdrop }}
+        slotProps={{ backdrop: { timeout: 500 } }}
+      >
+        <Fade in={open3}>
+          <Box className="absolute top-[50%] rounded-lg overflow-hidden left-[50%] translate-x-[-50%] translate-y-[-50%] bg-secondary w-[50rem] h-[40rem]">
+            <Typography
+              id="transition-modal-title"
+              variant="h6"
+              component="h2"
+              className=""
+            >
+              <Comments handleClose3={handleClose3} />
+            </Typography>
+          </Box>
+        </Fade>
+      </Modal>
     </div>
   );
 }
