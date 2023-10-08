@@ -3,7 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import Loader from "../Loader";
 import { CONT } from "../Context/AppContext";
-import "../../Style Sheets/pay.css";
+// import "../../Style Sheets/pay.css";
 
 export function Paypal({ data, origin }) {
   const [mpesaMobile, setMpesaMobile] = useState("");
@@ -144,7 +144,7 @@ export function Paypal({ data, origin }) {
         style={formLoading ? { display: "none" } : { display: "grid" }}
       >
         <p style={mpesaPayError ? { color: "red" } : { display: "none" }}>
-          Sorry, there's a problem with the server. Please try another payment
+          Sorry, there&apos;s a problem with the server. Please try another payment
           method.
         </p>
         <input

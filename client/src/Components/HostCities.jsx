@@ -1,5 +1,5 @@
 import React from "react";
-import "../Style Sheets/hostcities.css";
+// import "../Style Sheets/hostcities.css";
 import nairobi from "../assets/Nairobi.mp4";
 import kisumu from "../assets/Kisumu.mp4";
 import mombasa from "../assets/Mombasa.mp4";

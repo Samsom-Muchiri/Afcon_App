@@ -196,17 +196,7 @@ function Nav() {
           </ul>
         </div>
       </nav>
-<<<<<<< HEAD:client/src/Components/Nav.jsx
       <main className={` ${pathname=='/signin'|| pathname=='/signup'?'mt-0 pt-0':'lg:mt-[1.5rem] mt-[1.14rem]'}`}>
-=======
-      <main
-        className={` ${
-          pathname == "/signin" || pathname == "/signup"
-            ? "mt-0 pt-0"
-            : "lg:mt-[1.82rem] mt-[1.14rem]"
-        }`}
-      >
->>>>>>> f0d23b669fdb153ce42f39622ba7575075372471:src/Components/Nav.jsx
         <Outlet />
       </main>
       <Footer /> 

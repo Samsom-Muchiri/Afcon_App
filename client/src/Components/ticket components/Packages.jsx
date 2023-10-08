@@ -104,13 +104,8 @@ function Packages() {
         Learn more about our different packages and find the one that's right
         for you.
       </p>
-<<<<<<< HEAD:client/src/Components/ticket components/Packages.jsx
-      <div className="fxc">
-        {packageTicket.map((data,index) => {
-=======
       <div className=" cnt-p">
-        {packageTicket.map((data) => {
->>>>>>> f0d23b669fdb153ce42f39622ba7575075372471:src/Components/ticket components/Packages.jsx
+        {packageTicket.map((data,index) => {
           return (
             <div key={index} className={`package-card ${data.ticketType}`}>
               <h2>All Matches Package</h2>

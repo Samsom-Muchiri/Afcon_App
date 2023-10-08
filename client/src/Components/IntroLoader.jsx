@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "../Style Sheets/IntroLoader.css";
+// import "../Style Sheets/IntroLoader.css";
 import cup from "../assets/afcon_cup.png";
 
 function IntroLoader() {

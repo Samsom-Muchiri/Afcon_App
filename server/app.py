@@ -81,7 +81,7 @@ def create_user():
     return jsonify({'message': 'User created successfully'})
 
 @app.route('/groups', methods=['POST'])
-def create_group():
+def create_group(): 
     data = request.get_json()
     new_group = GroupStage(name=data['name'])
     db.session.add(new_group)

@@ -17,14 +17,15 @@ const Comments = ({handleClose3}) => {
       // console.log(response.data)
     })
     .catch(error=>{
-      alert("Fetch comments failed!!")
+      // alert("Fetch comments failed!!")
     })
-  },[])
+  },[comments])
   
 
 
   const handleDelete=(e,ID)=>{
     e.preventDefault()
+    alert(ID)
 
     axios.delete(`${API_URL}/comments/${ID}`)
     .then(response=>{
@@ -55,12 +56,7 @@ const Comments = ({handleClose3}) => {
       alert("Posted successfully!")
       setTypedComment("")
       const new_comment={...SUBMITTED_COMMENT,"user": {"name": LOGGED_IN_NAME}}
-      // const SUBMITTED_COMMENT={
-      //   content:typedComment,
-      //   name:LOGGED_IN_NAME,
-      //   // user_id let the currently loggged in user be in the context or localStorage
-      //   user_id:2
-      // }
+      
       const newComments=[...comments,new_comment]
       setComments(newComments)
     })
@@ -87,7 +83,16 @@ const Comments = ({handleClose3}) => {
             }
           {/* <CommentCard /> */}
 
-          </div>: <h1>loading...</h1>
+          </div>: 
+          <div className="h-[30rem] w-[40rem] flex items-center justify-center">
+              <div className="mb-20 text-center">Loading...</div>
+              <div className="newtons-cradle ">
+                <div className="newtons-cradle__dot"></div>
+                <div className="newtons-cradle__dot"></div>
+                <div className="newtons-cradle__dot"></div>
+                <div className="newtons-cradle__dot"></div>
+              </div>
+          </div>
          }
           
 
