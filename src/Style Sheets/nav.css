@@ -71,6 +71,48 @@ nav a {
   cursor: pointer;
   margin-right: 10px;
 }
+.profile-container {
+  background-color: rgba(0, 0, 0, 0.53);
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 305;
+}
+.profile-info {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 500px;
+  background-color: white;
+  color: black;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.profile-info p {
+  width: 100%;
+  text-align: start;
+}
+.close-btn {
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  cursor: pointer;
+}
+.log-out-btn {
+  padding: 5px 10px;
+  background-color: rgb(249, 128, 128);
+  cursor: pointer;
+  margin: 10px;
+}
+.log-out-btn:hover {
+  background-color: rgb(236, 40, 40);
+}
 /* ________-mobile */
 .mobile {
   display: none;

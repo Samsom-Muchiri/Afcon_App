@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 // import React, { useEffect, useState } from "react";
 // import { Link, NavLink, Outlet } from "react-router-dom";
 import Footer from "./Footer.jsx";
@@ -8,6 +14,9 @@ import "../Style Sheets/nav.css";
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [userDetail, setUserDetail] = useState({});
+  const [userIsLoged, setUserIsLoged] = useState(false);
   const MobileNavStyle = {
     fontVariationSettings: '"FILL" 0, "wght" 200, "GRAD" -25, "opsz" 24"',
     fontSize: "30px",
@@ -18,11 +27,28 @@ function Nav() {
     e.stopPropagation();
     setMenuOpen(true);
   };
+  const toSign = useNavigate();
+  function checkUser() {
+    if (userIsLoged) {
+      toSign("/signup");
+    } else {
+      setProfileOpen(true);
+    }
+  }
+  function logOut() {
+    localStorage.setItem("useData", {});
+    setUserDetail({ name: "", email: "", password: "" });
+    setProfileOpen(false);
+    setUserIsLoged(false);
+  }
 
   useEffect(() => {
     const handleBodyClick = (event) => {
       if (!event.target.closest(".n-links")) {
         setMenuOpen(false);
+      }
+      if (localStorage.getItem("userData") !== null) {
+        setUserIsLoged(true);
       }
     };
 
@@ -34,6 +60,13 @@ function Nav() {
     };
   }, []);
 
+  useEffect(() => {
+    if (localStorage.getItem("userData") !== null) {
+      const userData = localStorage.getItem("userData");
+      const userObj = JSON.parse(userData);
+      setUserDetail(userObj);
+    }
+  }, []);
   return (
     <div className="">
       <nav
@@ -111,7 +144,7 @@ function Nav() {
             </div>
           </div>
 
-          <div className="profile">
+          <div className="profile" onClick={checkUser}>
             <span className="material-symbols-outlined">person</span>
           </div>
         </div>
@@ -164,6 +197,43 @@ function Nav() {
               Menu
             </li>
           </ul>
+        </div>
+        {/* ___________Profile pop */}
+        <div
+          className="profile-container"
+          style={profileOpen ? { display: "block" } : { display: "none" }}
+        >
+          <div className="profile-info">
+            <div className="close-btn" onClick={() => setProfileOpen(false)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="icon icon-tabler icon-tabler-square-x"
+                width="32"
+                height="32"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="#000000"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" />
+                <path d="M9 9l6 6m0 -6l-6 6" />
+              </svg>
+            </div>
+            <img
+              src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAM1BMVEXk5ueutLeqsbTn6eqpr7PJzc/j5ebf4eLZ3N2wtrnBxsjN0NLGysy6v8HT1tissra8wMNxTKO9AAAFDklEQVR4nO2d3XqDIAxAlfivoO//tEOZWzvbVTEpic252W3PF0gAIcsyRVEURVEURVEURVEURVEURVEURVEURVEURVEURflgAFL/AirAqzXO9R7XNBVcy9TbuMHmxjN6lr92cNVVLKEurVfK/zCORVvW8iUBnC02dj+Wpu0z0Y6QlaN5phcwZqjkOkK5HZyPAjkIjSO4fIdfcOwFKkJlX4zPu7Ha1tIcwR3wWxyFhRG6g4Je0YpSPDJCV8a2Sv2zd1O1x/2WMDZCwljH+clRrHfWCLGK8REMiql//2si5+DKWKcWeAGcFMzzNrXC/0TUwQ2s6+LhlcwjTMlYsUIQzPOCb7YBiyHopyLXIEKPEkI/TgeuiidK/R9FniUDOjRDpvm0RhqjMyyXNjDhCfIMYl1gGjIMIuYsnGEYRMRZOMMunaLVwpWRW008v6fYKDIzxCwVAeNSO90BJW6emelYBRF/kHpYGVaoxTDAaxOFsfP9y8hpJ4xd7gOcij7JNGQ1EYFgkPJa1jQEiYZXRaRINKxSDUW9n+FT82lSKadkiru9/4XPqSLWOekGPoY05TAvLm9orm+YWuwHoBHkZKijNBJGmeb61eL6Ff/6q7bLr7yvv3vKGhpDRjvgjGaPz+gUg6YgcvpyAR2FIZ9U6nEEyZRTovmEU32KichpGn7C17XrfyH9gK/c0CMP05HZIM2uf9sEveizKveBy9/6Qt7o89ne33D525cfcIMW6ab+TMEukQbQbu+xu7X3A9bChmWaCeAkG17bpntwXgWxHaMzGPmUaR5dQZiKqRVeUZ3047fi3nAu28h4CHxCsZAgmEH8Y27jJAhm8c+5RQzRQNVGhVFSfxOYIjp/pP7RxzjevYXVGf4eLt+BJ1vCuLuLkrgABgCGXZ2wik5uty+oBvNirI6mkzhAf4Gsb58Hcm67Jzd+KwD10BYPLL3e0MjvKrgAULnOfveF/O4N2Xb9BZom3gJes3F9X5Zze8/6Yt09b4CrqsEjUv8oFBaR2rl+6CZr2xVrp24o/WitBKuGrrpl1+bFkmK2qXTON4VpbdfLa7o7y/WdLxG7lm2Lqh2clOwTegbvc/vj2U78CwhA87Bn8G5Nk3eOb0Nsr9flz3sG78UUtue4kpv1xvjg3TMay62BMlTlP+vrOMnJsRmt/ze0jsfkPPYdAH57hK+34PeOyc8XIXu5xT2HsUkdZz+adwg8HGFfQ3K5jtDvbUiO4Di9/ywHGrL88pDizZ++oTp+an+SMX/ndymUCwmHMdO7yuOx83pUx/eEMU0AvxWndwgidAqOZ8ypCwdEfvvEo6D9HwpA8wzvmOJEqAg9ySu8g4x0Hb9hSB/BANEKJ+LbPBU0lzbAJs4xt1AoshKkUGQmiH8/jJ0gdhTTLmSegHlPE0oOdXALnqDjKYh3px//fSgSWG8UqfrrIICzYYSJXRr9BSPbpNzw7gBjKjKOYI7ReIGqQRIap5+5MdjyvuDkExvGeXSlONWZAP3/AZBwJohU7QJRGU+cTVH18ELmRPNBmibW6MT/k1b0XhdkRBvyT6SB6EYv/GvhSmRNpGngRULsAlxMCGNXp7w3FfdEbTEEDdLI9TdIKRUzUesa3I461ER8cpNT7gMRhpKmYVS9ELOgCUQsa4SsulciKiLbY+AnHD8cpuhISsnxpamI84sbDq9qYJgf8wiiOBrC7Ml7M7ZECCqKoiiKoiiKoiiKoijv5AvJxlZRyNWWLwAAAABJRU5ErkJggg=="
+              alt=""
+            />
+            <div className="user-info">
+              <p>User name: {userDetail.name}</p>
+              <p>Email: {userDetail.email}</p>
+              <button className="log-out-btn" onClick={logOut}>
+                Log Out
+              </button>
+            </div>
+          </div>
         </div>
       </nav>
       <main
