@@ -2,6 +2,10 @@ from flask_bcrypt import generate_password_hash, check_password_hash
 from sqlalchemy_serializer import SerializerMixin
 from flask_login import UserMixin
 from .dbconfig import db
+# from uuid import uuid4
+
+# def get_uuid():
+#     return uuid4().hex
 
 class User(db.Model, SerializerMixin, UserMixin):
     __tablename__ = 'users'

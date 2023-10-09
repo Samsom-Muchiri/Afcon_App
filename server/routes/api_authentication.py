@@ -1,20 +1,41 @@
-from flask import Flask, Blueprint, jsonify, request, g
+from flask import Flask, Blueprint, jsonify, request, g, session
 from flask_login import login_manager, LoginManager, login_user, logout_user, login_required, current_user
 from models.user import User
 from models.dbconfig import db
-from flask import current_app as app
+# from flask import current_app as app
+# from models.passwordresettoken import PasswordResetToken
+from datetime import datetime, timedelta
 from flask_bcrypt import check_password_hash
+
+# import jwt
 # from flask_cors import CORS
 import os
 
 
 
+
 auth_bp = Blueprint('auth_bp', __name__)
+
+
 
 # # loads the user object 
 # @app.login_manager.user_loader
 # def load_user(user_id):
 #     return User.query.get(int(user_id))
+
+@auth_bp.route('/@me')
+def get_current_user():
+    user_id = session.get('user_id')
+    
+    if not current_user.is_authenticated:
+        return jsonify({'error': 'Unauthorized'}), 401
+    
+    user = User.query.filter_by(id=user_id).first()
+    return jsonify({
+    'id': current_user.id,
+    'email': current_user.email,
+    'name': current_user.name
+})
 
 # Route to log in a user. 
 @auth_bp.route('/login', methods=['POST'])
@@ -29,8 +50,9 @@ def login():
         login_user(user)
         return jsonify({"message": "Logged in successfully!", "user": {"id": user.id, "name": user.name}})
     
+    session['user_id'] = user.id
+    
     return jsonify({"message": "Invalid email or password!"}), 401
-
 
 # Route to log out a logged-in user.
 @auth_bp.route('/logout')
@@ -38,7 +60,7 @@ def logout():
     logout_user()
     return jsonify({"message": "Logged out successfully!"}), 200
 
-# Route to register a new user.The client should send a JSON object with user details.
+# register a new user.The client should send a JSON object with user details.
 @auth_bp.route('/register', methods=['POST'])
 def register():
     # Check if data was provided

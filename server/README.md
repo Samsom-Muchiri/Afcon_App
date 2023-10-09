@@ -6,9 +6,13 @@
 ``pip install Flask-SQLAlchemy``
 ``pip install Flask-Migrate``
 ``pip install Flask``
-``pip install Flask-RESTful Api``
+``pip install Flask-RESTful``
 ``pip install Flask-Login`` 
 ``pip install Flask-Bcrypt``
+``pip install Flask-Session``
+``pip install redis-session``
+
+
 
 
 
