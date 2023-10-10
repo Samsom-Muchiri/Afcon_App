@@ -16,7 +16,7 @@ import Backdrop from "@mui/material/Backdrop";
 
 function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  const [userIsLoged, setUserIsLoged] = useState(false);
   const [open3, setOpen3] = useState(false);
   const handleOpen3 = () => setOpen3(true);
   const handleClose3 = () => setOpen3(false);
@@ -37,7 +37,7 @@ function Nav() {
   };
   const toSign = useNavigate();
   function checkUser() {
-    if (userIsLoged) {
+    if (!userIsLoged) {
       toSign("/signup");
     } else {
       setProfileOpen(true);
