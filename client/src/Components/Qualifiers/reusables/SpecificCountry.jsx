@@ -11,7 +11,7 @@ const SpecificCountry = () => {
   // const URL="http://localhost:3000/players"
   const {API_URL}=useMyCustomHook()
   let COUNTRY_FLAG=country.flag_url
-  console.log(country)
+  // console.log(country)
   const {id}=useParams()
 
   useEffect(()=>{

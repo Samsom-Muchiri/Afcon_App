@@ -99,12 +99,12 @@ function Nav() {
               <li>
                 <Link to="/buy_ticket">Buy Ticket</Link>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/">AFCON store</Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link to="/">Inside Afcon</Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
@@ -141,10 +141,10 @@ function Nav() {
                     <Link to="/host_cities">Host Countries & Cities</Link>
                     <hr />
                   </li>
-                  <li>
+                  {/* <li>
                     <Link to="/">Register your Interests</Link>
                     <hr />
-                  </li>
+                  </li> */}
                 </ul>
 
                 {/* _____________________Important mobile links */}
