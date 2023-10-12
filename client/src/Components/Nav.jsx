@@ -177,8 +177,8 @@ function Nav() {
         </Button>
             </DropdownTrigger>
       <DropdownMenu aria-label="Static Actions">
-        <DropdownItem key="new" textValue="user" className="bg-orange-500 rounded-lg px-3 hover:bg-orange-600 py-2 hover:text-black mb-2 text-center" ><NavLink to='/signin' className='text-sm uppercase text-white'>Sign In</NavLink></DropdownItem>
-        <DropdownItem key="copy" textValue="user" className="bg-green-600 rounded-lg px-3 py-2 hover:bg-green-700 hover:text-black mb-2 text-center"><NavLink to='/signup' className='text-sm uppercase text-white'>Sign Up</NavLink></DropdownItem>
+        {/* <DropdownItem key="new" textValue="user" className="bg-orange-500 rounded-lg px-3 hover:bg-orange-600 py-2 hover:text-black mb-2 text-center" ><NavLink to='/signin' className='text-sm uppercase text-white'>Sign In</NavLink></DropdownItem> */}
+        {/* <DropdownItem key="copy" textValue="user" className="bg-green-600 rounded-lg px-3 py-2 hover:bg-green-700 hover:text-black mb-2 text-center"><NavLink to='/signup' className='text-sm uppercase text-white'>Sign Up</NavLink></DropdownItem> */}
         <DropdownItem key="copy2" onClick={checkUser} textValue="user" className="bg-blue-900 rounded-lg px-3 py-2 hover:bg-blue-800 hover:text-black mb-2 text-center"><NavLink to='' className='text-sm uppercase text-white'>{userIsLoged?"Check Profile":"Log Out"}</NavLink></DropdownItem>
       </DropdownMenu>
     </Dropdown>
