@@ -7,7 +7,7 @@ function AppContext({ children }) {
   const [userIsLoged, onsetUserIsLoged] = useState(false);
 
 
-  const API_URL="http://localhost:5555"
+  const API_URL="http://localhost:5000"
   const LOGGED_IN_NAME="Alan Walker"
   const classes = {
     functions: "function",

@@ -17,6 +17,8 @@ from models.player import Player
 
 # Create the Flask app
 app = Flask(__name__)
+app.json.compact=False
+
 app.config.from_object(Config)
 CORS(app, supports_credentials=True, origins=["http://localhost:5173","http://localhost:5174"])
 # CORS(app)
@@ -203,4 +205,4 @@ def delete_comment(comment_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5555)
+    app.run()
