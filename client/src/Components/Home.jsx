@@ -13,14 +13,14 @@ import { useMyCustomHook } from "./Context/AppContext";
 
 function Home() {
   const navigate=useNavigate()
-  const {userIsLoged,setUserIsLoged}=useMyCustomHook()
+  const { userIsLoged }=useMyCustomHook()
   
   useEffect(()=>{
     const LOGINSTATUS=JSON.parse(sessionStorage.getItem("LOGINSTATUS"));
     if (LOGINSTATUS==null){
       navigate("/signin");
     }
-  },[userIsLoged])
+  },[userIsLoged, navigate])
   return (
     <div className="slider-section">
       <CitiesSlider />
