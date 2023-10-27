@@ -38,6 +38,9 @@ with app.app_context():
     
     user4 = User(name='Carl Emmanuel', email='carl@yahoo.com', country='Tanzania')
     user4.set_password('password4')
+    
+    user5 =User(name='Vitamax Oduol', email='vitamax.oduol@student.moringaschool.com', country='Kenya')
+    user5.set_password('password5')
 
     # Create sample data for the GroupStage model
     print('Creating group_stage objects...')

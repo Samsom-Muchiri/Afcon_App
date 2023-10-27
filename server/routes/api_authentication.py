@@ -6,6 +6,7 @@ from models.dbconfig import db
 # from models.passwordresettoken import PasswordResetToken
 from datetime import datetime, timedelta
 from flask_bcrypt import check_password_hash
+from flask_cors import CORS
 
 # import jwt
 # from flask_cors import CORS
@@ -50,7 +51,7 @@ def login():
         login_user(user)
         return jsonify({"message": "Logged in successfully!", "user": {"id": user.id, "name": user.name}})
     
-    session['user_id'] = user.id
+        session['user_id'] = user.id
     
     return jsonify({"message": "Invalid email or password!"}), 401
 

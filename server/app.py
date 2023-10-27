@@ -25,7 +25,14 @@ bcrypt =Bcrypt(app)
 server_session = Session(app)
 # app.config['SECRET_KEY'] = SECRET_KEY
 
-CORS(app, supports_credentials=True, origins=["http://localhost:3000"])
+
+# CORS(app, supports_credentials=True, origins=["http://localhost:5173","http://localhost:5174"], methods=["GET", "POST", "PUT", "DELETE"], allow_headers=["Content-Type", "Authorization"])
+# CORS(app, auth_bp, resources={r"/api/*": {"origins": "*"}, r"/auth/*": {"origins": "*"}})
+# CORS(app)
+# CORS(app, auth_bp, resources={r"/*": {"origins": "*", "allow_headers": ["Authorization", "Content-Type"]}})
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}, r"/auth/*": {"origins": "http://localhost:5173"}})
+
+
 
 
 # Initialize database
@@ -52,4 +59,4 @@ def load_user(user_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5555)
+    app.run()
